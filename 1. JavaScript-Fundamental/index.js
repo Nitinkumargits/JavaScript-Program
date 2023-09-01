@@ -5,11 +5,11 @@
 
 // Equality operator
 
-const fav = Number(prompt("What is your fav number :"));
+// const fav = Number(prompt("What is your fav number :"));
 
-console.log(fav);
-console.log(typeof fav);
+// console.log(fav);
+// console.log(typeof fav);
 
-if (fav === 23) {
-  console.log("23 is your fav nuber !!!");
-}
+// if (fav === 23) {
+//   console.log("23 is your fav nuber !!!");
+// }
