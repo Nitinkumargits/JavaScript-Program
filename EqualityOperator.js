@@ -1,9 +1,4 @@
-// let js = "good";
-// if (js === "good") alert("everything is good !");
-
-// console.log(String(23));
-
-// Equality operator
+// == vs ===
 
 const fav = Number(prompt("What is your fav number :"));
 
