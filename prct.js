@@ -8,7 +8,7 @@ const jonas = {
   },
 };
 
-const friend = jonas;
+const friend = Object.assign({}, jonas);
 friend.age = 77;
 
 console.log("jonas :", jonas);
