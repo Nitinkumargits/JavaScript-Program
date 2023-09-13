@@ -1,4 +1,4 @@
-let {
-//   fri: { open, close },
-// } = restaurant.openingHourse;
-// console.log(open, close);
+console.log(true || "nitin");
+// console.log("" || "jonas");
+// console.log(3 || "ekta");
+// console.log(undefined || null);
