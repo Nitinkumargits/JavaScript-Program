@@ -1,4 +1,3 @@
-console.log(true || "nitin");
-// console.log("" || "jonas");
-// console.log(3 || "ekta");
-// console.log(undefined || null);
+ate"));
+
+// console.log(announcement.replace(/door/g, "nitin"));
