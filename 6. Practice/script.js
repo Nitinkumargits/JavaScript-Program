@@ -26,23 +26,62 @@
 // Hints: Use tools from all lectures in this section so far �
 // GOOD LUCK
 
-const checkDogs = function (juliaDogs, KateDogs) {
-  const juliasCorrect = juliaDogs.slice(); //Make shallow copy
+// const checkDogs = function (juliaDogs, KateDogs) {
+//   const juliasCorrect = juliaDogs.slice(); //Make shallow copy
 
-  juliasCorrect.splice(0, 1);
-  juliasCorrect.splice(-2);
+//   juliasCorrect.splice(0, 1);
+//   juliasCorrect.splice(-2);
 
-  const dogs = juliasCorrect.concat(KateDogs);
-  //   Dog number 2 is still a puppy
+//   const dogs = juliasCorrect.concat(KateDogs);
+//   //   Dog number 2 is still a puppy
 
-  dogs.forEach(function (dog, i) {
-    console.log(
-      `Dog number ${i + 1} is still a ${
-        dog >= 3 ? "adult 🐕" : "puppy 🐶"
-      } and age is ${dog}`
-    );
+//   dogs.forEach(function (dog, i) {
+//     console.log(
+//       `Dog number ${i + 1} is still a ${
+//         dog >= 3 ? "adult 🐕" : "puppy 🐶"
+//       } and age is ${dog}`
+//     );
+//   });
+// };
+
+// // checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+// checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+
+// Coding Challenge #2
+// Let's go back to Julia and Kate's study about dogs. This time, they want to convert
+// dog ages to human ages and calculate the average age of the dogs in their study.
+// Your tasks:
+// Create a function 'calcAverageHumanAge', which accepts an arrays of dog's
+// ages ('ages'), and does the following things in order:
+// 1. Calculate the dog age in human years using the following formula: if the dog is
+// <= 2 years old, humanAge = 2 * dogAge. If the dog is > 2 years old,
+// humanAge = 16 + dogAge * 4
+// 2. Exclude all dogs that are less than 18 human years old (which is the same as
+// keeping dogs that are at least 18 years old)
+// 3. Calculate the average human age of all adult dogs (you should already know
+// from other challenges how we calculate averages �)
+// 4. Run the function for both test datasets
+// Test data:
+// § Data 1: [5, 2, 4, 1, 15, 8, 3]
+// § Data 2: [16, 6, 10, 5, 6, 1, 4]
+// GOOD LUCK
+
+const calcAverageHumanAge = function (ages) {
+  const humanAge = ages.map(function (age) {
+    return age <= 2 ? 2 * age : 16 + age * 4;
   });
+  // console.log(humanAge);
+  const adultdogs = humanAge.filter(function (mov) {
+    return mov > 18;
+  });
+  // console.log(adultdogs);
+
+  const adultAvgDog = adultdogs.reduce(function (acc, cur, i) {
+    return (acc + cur) / i;
+  }, 0);
+
+  console.log(adultAvgDog);
 };
 
-// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
-checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
