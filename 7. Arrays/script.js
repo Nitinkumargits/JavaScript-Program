@@ -181,3 +181,7 @@ console.log('******************************');
 
 const arrowEurToUSD = movements.map ((mov) => eurToUSD * mov);
 console.log(arrowEurToUSD);
+
+
+console.log('******************************');
+

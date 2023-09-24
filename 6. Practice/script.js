@@ -94,4 +94,14 @@ const averageHumanAge2 = (ages) => {
     .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
   return humanAge;
 };
-console.log(averageHumanAge2([5, 2, 4, 1, 15, 8, 3]));
+// console.log(averageHumanAge2([5, 2, 4, 1, 15, 8, 3]));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const firstWithdrawal = movements.find((mov) => mov < 0);
+// console.log(firstWithdrawal);
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const anyDeposite = movements.some((mov) => mov > 0);
+console.log(anyDeposite);
