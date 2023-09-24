@@ -46,7 +46,7 @@
 
 // // checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 // checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
-
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // Coding Challenge #2
 // Let's go back to Julia and Kate's study about dogs. This time, they want to convert
 // dog ages to human ages and calculate the average age of the dogs in their study.
@@ -65,7 +65,7 @@
 // § Data 1: [5, 2, 4, 1, 15, 8, 3]
 // § Data 2: [16, 6, 10, 5, 6, 1, 4]
 // GOOD LUCK
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 const calcAverageHumanAge = function (ages) {
   const humanAge = ages.map(function (age) {
     return age <= 2 ? 2 * age : 16 + age * 4;
@@ -76,12 +76,22 @@ const calcAverageHumanAge = function (ages) {
   });
   // console.log(adultdogs);
 
-  const adultAvgDog = adultdogs.reduce(function (acc, cur, i) {
-    return (acc + cur) / i;
+  const adultAvgDog = adultdogs.reduce(function (acc, cur, i, arr) {
+    return (acc + cur) / arr.length;
   }, 0);
 
   console.log(adultAvgDog);
 };
 
-calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
-calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+// calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const averageHumanAge2 = (ages) => {
+  const humanAge = ages
+    .map((age) => (age <= 2 ? 2 * age : 16 + age * 4))
+    .filter((mov) => mov > 18)
+    .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+  return humanAge;
+};
+console.log(averageHumanAge2([5, 2, 4, 1, 15, 8, 3]));
