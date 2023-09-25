@@ -49,59 +49,155 @@
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // Coding Challenge #2
 // Let's go back to Julia and Kate's study about dogs. This time, they want to convert
-// dog ages to human ages and calculate the average age of the dogs in their study.
-// Your tasks:
-// Create a function 'calcAverageHumanAge', which accepts an arrays of dog's
-// ages ('ages'), and does the following things in order:
-// 1. Calculate the dog age in human years using the following formula: if the dog is
-// <= 2 years old, humanAge = 2 * dogAge. If the dog is > 2 years old,
-// humanAge = 16 + dogAge * 4
-// 2. Exclude all dogs that are less than 18 human years old (which is the same as
-// keeping dogs that are at least 18 years old)
-// 3. Calculate the average human age of all adult dogs (you should already know
-// from other challenges how we calculate averages �)
-// 4. Run the function for both test datasets
-// Test data:
-// § Data 1: [5, 2, 4, 1, 15, 8, 3]
-// § Data 2: [16, 6, 10, 5, 6, 1, 4]
-// GOOD LUCK
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-const calcAverageHumanAge = function (ages) {
-  const humanAge = ages.map(function (age) {
-    return age <= 2 ? 2 * age : 16 + age * 4;
-  });
-  // console.log(humanAge);
-  const adultdogs = humanAge.filter(function (mov) {
-    return mov > 18;
-  });
-  // console.log(adultdogs);
+// // dog ages to human ages and calculate the average age of the dogs in their study.
+// // Your tasks:
+// // Create a function 'calcAverageHumanAge', which accepts an arrays of dog's
+// // ages ('ages'), and does the following things in order:
+// // 1. Calculate the dog age in human years using the following formula: if the dog is
+// // <= 2 years old, humanAge = 2 * dogAge. If the dog is > 2 years old,
+// // humanAge = 16 + dogAge * 4
+// // 2. Exclude all dogs that are less than 18 human years old (which is the same as
+// // keeping dogs that are at least 18 years old)
+// // 3. Calculate the average human age of all adult dogs (you should already know
+// // from other challenges how we calculate averages �)
+// // 4. Run the function for both test datasets
+// // Test data:
+// // § Data 1: [5, 2, 4, 1, 15, 8, 3]
+// // § Data 2: [16, 6, 10, 5, 6, 1, 4]
+// // GOOD LUCK
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////
+// const calcAverageHumanAge = function (ages) {
+//   const humanAge = ages.map(function (age) {
+//     return age <= 2 ? 2 * age : 16 + age * 4;
+//   });
+//   // console.log(humanAge);
+//   const adultdogs = humanAge.filter(function (mov) {
+//     return mov > 18;
+//   });
+//   // console.log(adultdogs);
 
-  const adultAvgDog = adultdogs.reduce(function (acc, cur, i, arr) {
-    return (acc + cur) / arr.length;
-  }, 0);
+//   const adultAvgDog = adultdogs.reduce(function (acc, cur, i, arr) {
+//     return (acc + cur) / arr.length;
+//   }, 0);
 
-  console.log(adultAvgDog);
+//   console.log(adultAvgDog);
+// };
+
+// // calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+// // calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// const averageHumanAge2 = (ages) => {
+//   const humanAge = ages
+//     .map((age) => (age <= 2 ? 2 * age : 16 + age * 4))
+//     .filter((mov) => mov > 18)
+//     .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+//   return humanAge;
+// };
+// // console.log(averageHumanAge2([5, 2, 4, 1, 15, 8, 3]));
+
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const firstWithdrawal = movements.find((mov) => mov < 0);
+// // console.log(firstWithdrawal);
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// const anyDeposite = movements.some((mov) => mov > 0);
+// console.log(anyDeposite);
+
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////
+// const arr = [[1, 2, 3], 4, 5, [6, 7]];
+
+// // console.log(arr.flat());
+
+// const arrDeep = [[[1, 2], 3], 4, 5, [[6, 7]], 8, 9];
+// console.log(arrDeep.flat(2));
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (a < b) return -1;
+// });
+
+// // console.log(movements);
+
+// movements.sort((a, b) => {
+//   if (a > b) return -1;
+//   if (a < b) return 1;
+// });
+// // console.log(movements);
+
+// // movements.sort((a, b) => a - b);
+// // console.log(movements);
+
+// const x = new Array(7);
+// x.fill(1, 3, 5);
+// // console.log(x);
+
+// const arr = [1, 2, 3, 4, 5, 6, 7];
+
+// arr.fill(23, 2, 6);
+// // console.log(arr);
+
+// const y = Array.from({ length: 7 }, () => 1);
+// console.log(y);
+
+// const z = Array.from({ length: 10 }, (_, i) => i + 1);
+// console.log(z);
+
+const account1 = {
+  owner: "Jonas Schmedtmann",
+  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  interestRate: 1.2, // %
+  pin: 1111,
 };
 
-// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
-// calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-const averageHumanAge2 = (ages) => {
-  const humanAge = ages
-    .map((age) => (age <= 2 ? 2 * age : 16 + age * 4))
-    .filter((mov) => mov > 18)
-    .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
-  return humanAge;
+const account2 = {
+  owner: "Jessica Davis",
+  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  interestRate: 1.5,
+  pin: 2222,
 };
-// console.log(averageHumanAge2([5, 2, 4, 1, 15, 8, 3]));
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const account3 = {
+  owner: "Steven Thomas Williams",
+  movements: [200, -200, 340, -300, -20, 50, 400, -460],
+  interestRate: 0.7,
+  pin: 3333,
+};
 
-const firstWithdrawal = movements.find((mov) => mov < 0);
-// console.log(firstWithdrawal);
-///////////////////////////////////////////////////////////////////////////////////////////////////////
+const account4 = {
+  owner: "Sarah Smith",
+  movements: [430, 1000, 700, 50, 90],
+  interestRate: 1,
+  pin: 4444,
+};
 
-const anyDeposite = movements.some((mov) => mov > 0);
-console.log(anyDeposite);
+const accounts = [account1, account2, account3, account4];
+
+const numDeposite = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce((acc, cur) => (cur >= 1000 ? ++acc : acc), 0);
+// console.log(numDeposite);
+
+let a = 10;
+// console.log(a++);
+// console.log(a);
+
+let b = 10;
+// console.log(++b);
+// console.log(b);
+
+const sums = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      cur > 0 ? (sums.deposite += cur) : (sums.withdrals += cur);
+      return sums;
+    },
+    { deposite: 0, withdrals: 0 }
+  );
+console.log(sums);
