@@ -152,17 +152,47 @@
 //   console.log(output);
 // }
 
-const bookings = [];
+// const bookings = [];
 
-const creatBooking = function (flightNum, numPassengers, Price) {
-  const booking = {
-    flightNum,
-    numPassengers,
-    Price,
-  };
+// const creatBooking = function (flightNum, numPassengers, Price) {
+//   const booking = {
+//     flightNum,
+//     numPassengers,
+//     Price,
+//   };
 
-  console.log(booking);
-  bookings.push(booking);
-};
+//   console.log(booking);
+//   bookings.push(booking);
+// };
 
-creatBooking("LH23", undefined, 23.99);
+// creatBooking("LH23", undefined, 23.99);
+
+// const flight = "LH234";
+// const jonas = {
+//   name: "jonas kuamr",
+//   passport: 23435432323,
+// };
+
+// const checkIn = function (flightNum, passenger) {
+//   flightNum = "LH999";
+//   passenger.name = "Mr. " + passenger.name;
+// };
+
+// checkIn(flight, jonas);
+// console.log(flight);
+// console.log(jonas);
+
+// const secureBooking = function () {
+//   let passengerCount = 0;
+
+//   return function () {
+//     passengerCount++;
+//     console.log(`${passengerCount} : passenger `);
+//   };
+// };
+
+// const booker = secureBooking();
+// booker();
+// booker();
+// booker();
+// console.dir(booker);
