@@ -136,25 +136,55 @@
 
 //class declaration
 
-class Personcl {
-  constructor(fullName, BirthYear) {
+// class Personcl {
+//   constructor(fullName, BirthYear) {
+//     this.fullName = fullName;
+//     this.BirthYear = BirthYear;
+//   }
+
+//   get age() {
+//     return 2037 - this.BirthYear;
+//   }
+
+//   set fullName(name) {
+//     if (name.includes(' ')) this._fullName = name;
+//     else alert(`${name} is not a full Name !`);
+//   }
+
+//   get fullName() {
+//     return this._fullName;
+//   }
+// }
+
+// const jessica = new Personcl('jessica kumari', 1996);
+// // console.log(jessica);
+
+//STATIC METHOD
+
+// const PersonStatic = function (firstName, BirthYear) {
+//   this.firstName = firstName;
+//   this.BirthYear = BirthYear;
+// };
+
+// const jonas = new PersonStatic('Jonas', 1996);
+// PersonStatic.hey = function () {
+//   console.log(`Hey there ${this.firstName}`);
+//   console.log(this);
+// };
+
+// PersonStatic.hey();
+// jonas.hey();
+
+class PersonStatic {
+  constructor(fullName, birthYear) {
     this.fullName = fullName;
-    this.BirthYear = BirthYear;
+    this.birthYear = birthYear;
   }
 
-  get age() {
-    return 2037 - this.BirthYear;
-  }
-
-  set fullName(name) {
-    if (name.includes(' ')) this._fullName = name;
-    else alert(`${name} is not a full Name !`);
-  }
-
-  get fullName() {
-    return this._fullName;
+  static hey() {
+    console.log('Hey there !!!');
   }
 }
 
-const jessica = new Personcl('jessica kumari', 1996);
-// console.log(jessica);
+PersonStatic.hey();
+//
