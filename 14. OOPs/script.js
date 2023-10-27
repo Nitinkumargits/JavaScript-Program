@@ -187,4 +187,19 @@ class PersonStatic {
 }
 
 PersonStatic.hey();
-//
+//////////////////////////////////////////
+
+//Object.create()
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const sarah = Object.create(PersonProto);
+sarah.init('sarah', 1917);
+sarah.calcAge();
