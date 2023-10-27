@@ -92,23 +92,69 @@
 
 // ES6 CLASSES
 
+// class Personcl {
+//   constructor(firstName, BirthYear) {
+//     this.firstName = firstName;
+//     this.BirthYear = BirthYear;
+//   }
+
+//   calcAge() {
+//     console.log(2037 - this.BirthYear);
+//   }
+
+//   greet() {
+//     console.log(`Hey ${this.firstName}`);
+//   }
+// }
+
+// const nitin = new Personcl('Nitin', 2000);
+
+// console.log(nitin);
+// nitin.calcAge();
+// nitin.greet();
+////////////////////////////////////////////
+
+// Setter n Getter
+
+// const account = {
+//   owner: 'Jonas',
+//   movements: [23, 43, 5, 47, 8, 11],
+//   //getter
+//   get latest() {
+//     return this.movements.slice(-1).pop();
+//   },
+
+//   set latest(mov) {
+//     this.movements.push(mov);
+//   },
+// };
+// //getter
+// console.log(account.latest);
+// //setter
+// account.latest = 50;
+// console.log(account.movements);
+
+//class declaration
+
 class Personcl {
-  constructor(firstName, BirthYear) {
-    this.firstName = firstName;
+  constructor(fullName, BirthYear) {
+    this.fullName = fullName;
     this.BirthYear = BirthYear;
   }
 
-  calcAge() {
-    console.log(2037 - this.BirthYear);
+  get age() {
+    return 2037 - this.BirthYear;
   }
 
-  greet() {
-    console.log(`Hey ${this.firstName}`);
+  set fullName(name) {
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full Name !`);
+  }
+
+  get fullName() {
+    return this._fullName;
   }
 }
 
-const nitin = new Personcl('Nitin', 2000);
-
-console.log(nitin);
-nitin.calcAge();
-nitin.greet();
+const jessica = new Personcl('jessica kumari', 1996);
+// console.log(jessica);
