@@ -175,31 +175,64 @@
 // PersonStatic.hey();
 // jonas.hey();
 
-class PersonStatic {
-  constructor(fullName, birthYear) {
-    this.fullName = fullName;
-    this.birthYear = birthYear;
-  }
+// class PersonStatic {
+//   constructor(fullName, birthYear) {
+//     this.fullName = fullName;
+//     this.birthYear = birthYear;
+//   }
 
-  static hey() {
-    console.log('Hey there !!!');
-  }
-}
+//   static hey() {
+//     console.log('Hey there !!!');
+//   }
+// }
 
-PersonStatic.hey();
+// PersonStatic.hey();
 //////////////////////////////////////////
 
-//Object.create()
-const PersonProto = {
-  calcAge() {
-    console.log(2037 - this.birthYear);
-  },
-  init(firstName, birthYear) {
-    this.firstName = firstName;
-    this.birthYear = birthYear;
-  },
+// //Object.create()
+// const PersonProto = {
+//   calcAge() {
+//     console.log(2037 - this.birthYear);
+//   },
+//   init(firstName, birthYear) {
+//     this.firstName = firstName;
+//     this.birthYear = birthYear;
+//   },
+// };
+
+// const sarah = Object.create(PersonProto);
+// sarah.init('sarah', 1917);
+// sarah.calcAge();
+//////////////////////////////////////////
+//Inheritance
+
+//Parent class
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
 };
 
-const sarah = Object.create(PersonProto);
-sarah.init('sarah', 1917);
-sarah.calcAge();
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+//Child Class
+
+const Student = function (firstName, birthYear, course) {
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+//Linking the Parent and student prototype
+
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const Mike = new Student('Mike', 2000, 'computer Science');
+Mike.calcAge();
+
+Mike.introduce();
+
+console.log(Mike.__proto__.__proto__);
