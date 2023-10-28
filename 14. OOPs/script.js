@@ -206,36 +206,64 @@
 //////////////////////////////////////////
 //Inheritance
 
-//Parent class
-const Person = function (firstName, birthYear) {
-  this.firstName = firstName;
-  this.birthYear = birthYear;
-};
+// //Parent class
+// const Person = function (firstName, birthYear) {
+//   this.firstName = firstName;
+//   this.birthYear = birthYear;
+// };
 
-Person.prototype.calcAge = function () {
-  console.log(2037 - this.birthYear);
-};
-//Child Class
+// Person.prototype.calcAge = function () {
+//   console.log(2037 - this.birthYear);
+// };
+// //Child Class
 
-const Student = function (firstName, birthYear, course) {
-  Person.call(this, firstName, birthYear);
-  this.course = course;
-};
+// const Student = function (firstName, birthYear, course) {
+//   Person.call(this, firstName, birthYear);
+//   this.course = course;
+// };
 
-//Linking the Parent and student prototype
+// //Linking the Parent and student prototype
 
-Student.prototype = Object.create(Person.prototype);
+// Student.prototype = Object.create(Person.prototype);
 
-Student.prototype.introduce = function () {
-  console.log(`My name is ${this.firstName} and I study ${this.course}`);
-};
+// Student.prototype.introduce = function () {
+//   console.log(`My name is ${this.firstName} and I study ${this.course}`);
+// };
 
-const Mike = new Student('Mike', 2000, 'computer Science');
-Mike.calcAge();
+// const Mike = new Student('Mike', 2000, 'computer Science');
+// Mike.calcAge();
 
-Mike.introduce();
+// Mike.introduce();
 
-console.log(Mike.__proto__.__proto__);
+// console.log(Mike.__proto__.__proto__);
 
-Student.prototype.constructor = Student;
-console.dir(Student.prototype.constructor);
+// Student.prototype.constructor = Student;
+// console.dir(Student.prototype.constructor);
+////////////////////////////
+//Inheritance Using ES6: Classes
+
+class PersonCL {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+}
+
+class StudentCl extends PersonCL {
+  constructor(fullName, birthYear, course) {
+    super(fullName, birthYear);
+    this.course = course;
+  }
+
+  introduce() {
+    console.log(`My name is ${this.fullName} and I study ${this.course}`);
+  }
+
+  calcAge() {
+    console.log('Its good to know !!!');
+  }
+}
+
+const nitin = new StudentCl('nitin', 2000, 'CSE');
+nitin.calcAge();
+nitin.introduce();
